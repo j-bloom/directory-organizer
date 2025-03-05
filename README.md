@@ -11,7 +11,7 @@ It will no longer dynamically get the username of the current logged in user and
 
 Several new folders will be created in this process:  
 - Images
-- Video
+- Videos
 - Documents
 - Archieve
 
