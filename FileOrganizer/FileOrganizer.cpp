@@ -58,9 +58,9 @@ int main(int argc, const char* argv[])
             }
 
             if (std::find(videos.begin(), videos.end(), extensions[i]) != videos.end()) {
-                fs::create_directory("Video");
+                fs::create_directory("Videos");
                 fs::path source = files[i];
-                fs::path destination = fs::path("Video") / files[i];
+                fs::path destination = fs::path("Videos") / files[i];
 
                 std::cout << "Moving " << source << " -> " << destination << '\n';
                 fs::rename(source, destination);
