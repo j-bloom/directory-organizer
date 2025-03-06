@@ -36,16 +36,27 @@ int main(int argc, const char* argv[])
     try {
         const auto dir{ argc == 2 ? fs::path{argv[1]} : fs::current_path() };
 
-        std::cout << "Current dir: " << dir << '\n'
+        std::string userDirectory = "";
+        
+        std::cout << "What folder would you like to organize?" << std::endl;
+        std::cin >> userDirectory;
+
+        fs::current_path(userDirectory);
+
+        std::cout << "\nCurrent dir: " << userDirectory << '\n'
+            << std::string(40, '-') << '\n' << std::endl;
+
+        std::cout << "Files in Current Directory:\n"
             << std::string(40, '-') << '\n';
 
-        for (fs::directory_entry const& entry : fs::directory_iterator(dir)) {
+        for (fs::directory_entry const& entry : fs::directory_iterator(userDirectory)) {
             if (entry.is_regular_file()) {
-                std::cout << entry.path().filename().extension() << '\n';
+                std::cout << entry.path().filename() << '\n';
                 extensions.push_back(entry.path().filename().extension().string());
                 files.push_back(entry.path().filename().string());
             }
         }
+        std::cout << "\n";
 
         for (size_t i = 0; i < files.size(); ++i) {
             if (std::find(images.begin(), images.end(), extensions[i]) != images.end()) {

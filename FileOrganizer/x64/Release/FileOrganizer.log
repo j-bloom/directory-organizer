@@ -1,6 +1,6 @@
 ﻿  FileOrganizer.cpp
   Generating code
   Previous IPDB not found, fall back to full compilation.
-  All 578 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 604 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   FileOrganizer.vcxproj -> E:\Projects\Code\CPP\FileOrganizer\x64\Release\FileOrganizer.exe
