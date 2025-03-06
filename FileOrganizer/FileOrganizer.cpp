@@ -39,9 +39,13 @@ int main(int argc, const char* argv[])
         std::string userDirectory = "";
         
         std::cout << "What folder would you like to organize?" << std::endl;
-        std::cin >> userDirectory;
+        std::getline(std::cin, userDirectory);
 
-        fs::current_path(userDirectory);
+        if (userDirectory.empty()) {
+            userDirectory = fs::current_path().string();
+        } else {
+            fs::current_path(userDirectory);
+        }
 
         std::cout << "\nCurrent dir: " << userDirectory << '\n'
             << std::string(40, '-') << '\n' << std::endl;
@@ -101,6 +105,10 @@ int main(int argc, const char* argv[])
     catch (const fs::filesystem_error& e) {
         std::cout << e.what() << '\n';
     }
+
+    std::cout << "\nFiles Moved! This folder is organized. " << std::endl;
+    std::cout << "Press 'ENTER' to exit program." << std::endl;
+    getc(stdin);
 
     return 0;
 }
